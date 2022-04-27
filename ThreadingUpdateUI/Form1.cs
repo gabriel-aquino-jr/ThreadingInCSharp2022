@@ -26,7 +26,20 @@ namespace ThreadingUpdateUI
 
         private void btnGoNoThread_Click(object sender, EventArgs e)
         {
-            
+            int.TryParse(textBox1.Text, out int i);
+            int.TryParse(textBox2.Text, out int sleep);
+
+            btnGoNoThread.Enabled = textBox1.Enabled = textBox2.Enabled = false;
+
+            for (int j = 0; j <= i; j++)
+            {
+                lblCounter.Text = j.ToString();
+                System.Threading.Thread.Sleep(sleep);
+            }
+
+            btnGoNoThread.Enabled = textBox1.Enabled = textBox2.Enabled = true;
+
+            return;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
